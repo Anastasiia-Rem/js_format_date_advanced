@@ -45,11 +45,13 @@ function formatDate(date, fromFormat, toFormat) {
     toYear = fromYear < 30 ? '20' + fromYear : '19' + fromYear;
   }
 
-  toFormat[toMonthIndex] = month;
-  toFormat[toDayIndex] = day;
-  toFormat[toYearIndex] = toYear;
+  const result = [...toFormat];
 
-  return toFormat.slice(0, -1).join(toSeparator);
+  result[toMonthIndex] = month;
+  result[toDayIndex] = day;
+  result[toYearIndex] = toYear;
+
+  return result.slice(0, -1).join(toSeparator);
 }
 
 module.exports = formatDate;
